@@ -1,25 +1,48 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: ["AC", "+", "-", "x", "/", "%", 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, "=", "del"],
+      clickedValue: '',
+      displayValue: '',
+      operatorValue: '',
+    }
+  }
+
+  handleCalculation = (e) => {
+    this.setState((prevState) => {
+      return {
+      clickedValue: prevState.clickedValue + e.target.innerText
+      }
+    })
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <div>
+          <input type="text" value={this.state.clickedValue}style={{width: "300px", height: "50px"}}>
+
+          </input>
+        </div>
+        <div className="calculatorUI">
+          {this.state.squares.map((elm, index) => {
+            return(
+                <div className="digitSquare"
+                     onClick={this.handleCalculation}
+                >
+                  {elm}
+                </div>
+            )
+          })}
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
