@@ -48,17 +48,42 @@ table {
 }
 // ..................................................
 
-.calculatorUI{
-  display: flex;
-  flex-wrap: wrap;
-  width: 400px;
-  .digitSquare{
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-    border: 1px solid grey;
-    text-align: center;
-    padding-top: 25px;
-    cursor: pointer;
+body{
+	font-family: 'Fira Sans', sans-serif;
+}
+
+button{
+  border: none;
+  height: 30px;
+}
+.display{
+  padding: 16px;
+  text-align: right;
+  background-color: #2c2929;
+  color: white;
+  font-size: 24px;
+  font-weight: 300;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+span{
+  font-size: 14px;
+  color: #888;
+}
+.operators{
+  width: 100%;
+  .operatorButtons{
+    width: 36px;
+    background-color: #eb1919;
+    color: white;
   }
+}
+.digits{
+  width: 100%;
+  button{
+    width: 60px;
+    background-color: #2c2929;
+    color: white;
+  }
+  // height: 30px;
 }
